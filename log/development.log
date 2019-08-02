@@ -1,0 +1,103 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (249.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (63.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateDogsitters (20190802040324)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE "dogsitters" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190802040324_create_dogsitters.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190802040324"]]
+  ↳ bin/rails:9
+  [1m[35m (11.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateDogs (20190802040459)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "dogs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "doggy_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190802040459_create_dogs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190802040459"]]
+  ↳ bin/rails:9
+  [1m[35m (9.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateStrolls (20190802040522)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "strolls" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "day_time" varchar, "dogsitter_id" integer, "dog_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190802040522_create_strolls.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_strolls_on_dogsitter_id" ON "strolls" ("dogsitter_id")[0m
+  ↳ db/migrate/20190802040522_create_strolls.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_strolls_on_dog_id" ON "strolls" ("dog_id")[0m
+  ↳ db/migrate/20190802040522_create_strolls.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190802040522"]]
+  ↳ bin/rails:9
+  [1m[35m (11.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (3.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-08-02 04:09:31.240524"], ["updated_at", "2019-08-02 04:09:31.240524"]]
+  ↳ bin/rails:9
+  [1m[35m (15.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDog Create (39.1ms)[0m  [1m[32mINSERT INTO "dogs" ("doggy_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["doggy_name", "Wafy"], ["created_at", "2019-08-02 04:10:23.347472"], ["updated_at", "2019-08-02 04:10:23.347472"]]
+  [1m[35m (22.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDog Create (2.4ms)[0m  [1m[32mINSERT INTO "dogs" ("doggy_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["doggy_name", "Woofy"], ["created_at", "2019-08-02 04:10:48.308340"], ["updated_at", "2019-08-02 04:10:48.308340"]]
+  [1m[35m (10.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDogsitter Create (2.5ms)[0m  [1m[32mINSERT INTO "dogsitters" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Annie"], ["created_at", "2019-08-02 04:11:16.144206"], ["updated_at", "2019-08-02 04:11:16.144206"]]
+  [1m[35m (50.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStroll Create (2.7ms)[0m  [1m[32mINSERT INTO "strolls" ("dogsitter_id", "dog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["dogsitter_id", 1], ["dog_id", 1], ["created_at", "2019-08-02 04:11:44.141844"], ["updated_at", "2019-08-02 04:11:44.141844"]]
+  [1m[35m (16.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStroll Create (5.7ms)[0m  [1m[32mINSERT INTO "strolls" ("dogsitter_id", "dog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["dogsitter_id", 1], ["dog_id", 1], ["created_at", "2019-08-02 04:12:17.609739"], ["updated_at", "2019-08-02 04:12:17.609739"]]
+  [1m[35m (21.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStroll Create (2.7ms)[0m  [1m[32mINSERT INTO "strolls" ("dogsitter_id", "dog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["dogsitter_id", 1], ["dog_id", 1], ["created_at", "2019-08-02 04:12:44.096241"], ["updated_at", "2019-08-02 04:12:44.096241"]]
+  [1m[35m (52.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStroll Create (3.4ms)[0m  [1m[32mINSERT INTO "strolls" ("dogsitter_id", "dog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["dogsitter_id", 1], ["dog_id", 2], ["created_at", "2019-08-02 04:13:23.942440"], ["updated_at", "2019-08-02 04:13:23.942440"]]
+  [1m[35m (11.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStroll Create (2.6ms)[0m  [1m[32mINSERT INTO "strolls" ("dogsitter_id", "dog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["dogsitter_id", 1], ["dog_id", 2], ["created_at", "2019-08-02 04:13:48.705930"], ["updated_at", "2019-08-02 04:13:48.705930"]]
+  [1m[35m (292.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDogsitter Create (2.5ms)[0m  [1m[32mINSERT INTO "dogsitters" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "John"], ["created_at", "2019-08-02 04:14:09.810948"], ["updated_at", "2019-08-02 04:14:09.810948"]]
+  [1m[35m (14.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStroll Create (2.9ms)[0m  [1m[32mINSERT INTO "strolls" ("dogsitter_id", "dog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["dogsitter_id", 2], ["dog_id", 2], ["created_at", "2019-08-02 04:15:04.995213"], ["updated_at", "2019-08-02 04:15:04.995213"]]
+  [1m[35m (100.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mStroll Load (0.6ms)[0m  [1m[34mSELECT "strolls".* FROM "strolls"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStroll Update (2.6ms)[0m  [1m[33mUPDATE "strolls" SET "day_time" = ?, "updated_at" = ? WHERE "strolls"."id" = ?[0m  [["day_time", "Monday"], ["updated_at", "2019-08-02 04:15:57.614145"], ["id", 1]]
+  [1m[35m (11.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mStroll Load (0.5ms)[0m  [1m[34mSELECT "strolls".* FROM "strolls"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStroll Update (2.7ms)[0m  [1m[33mUPDATE "strolls" SET "day_time" = ?, "updated_at" = ? WHERE "strolls"."id" = ?[0m  [["day_time", "Tuesday"], ["updated_at", "2019-08-02 04:16:16.847353"], ["id", 2]]
+  [1m[35m (47.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStroll Update (2.4ms)[0m  [1m[33mUPDATE "strolls" SET "day_time" = ?, "updated_at" = ? WHERE "strolls"."id" = ?[0m  [["day_time", "Wednesday early morning"], ["updated_at", "2019-08-02 04:16:39.235462"], ["id", 3]]
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStroll Update (2.3ms)[0m  [1m[33mUPDATE "strolls" SET "day_time" = ?, "updated_at" = ? WHERE "strolls"."id" = ?[0m  [["day_time", "Wednesday 2p.m."], ["updated_at", "2019-08-02 04:17:03.166873"], ["id", 4]]
+  [1m[35m (12.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mStroll Load (0.8ms)[0m  [1m[34mSELECT  "strolls".* FROM "strolls" WHERE "strolls"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDogsitter Load (0.6ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStroll Update (3.5ms)[0m  [1m[33mUPDATE "strolls" SET "day_time" = ?, "updated_at" = ? WHERE "strolls"."id" = ?[0m  [["day_time", "Thursday"], ["updated_at", "2019-08-02 04:18:37.646078"], ["id", 5]]
+  [1m[35m (49.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStroll Update (2.7ms)[0m  [1m[33mUPDATE "strolls" SET "day_time" = ?, "updated_at" = ? WHERE "strolls"."id" = ?[0m  [["day_time", "all damn fu day!"], ["updated_at", "2019-08-02 04:19:04.624487"], ["id", 6]]
+  [1m[35m (51.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mStroll Load (0.5ms)[0m  [1m[34mSELECT "strolls".* FROM "strolls"[0m
